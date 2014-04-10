@@ -8,15 +8,15 @@ class ApplicationController < ActionController::Base
 
   #rescue_from ActionController::RoutingError, :with => :render_404
 
-  #rescue_from ActionController::UnknownController, :with => :render_404
+  rescue_from ActionController::UnknownController, :with => :render_404
 
  # rescue_from ActionController::MethodNotAllowed, :with => :render_404
 
- # rescue_from ActionController::InvalidAuthenticityToken, :with => :render_404
+  rescue_from ActionController::InvalidAuthenticityToken, :with => :render_404
 
-  if Rails.env.production?
-    rescue_from ActionController::UnknownAction, :with => :render_404
-  end
+ # if Rails.env.production?
+ #   rescue_from ActionController::UnknownAction, :with => :render_404
+ # end
 
 
     def render_404

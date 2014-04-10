@@ -1,4 +1,4 @@
-<h2>Главное меню</h2>
+<h1>Main page</h1>
 
 <%= link_to "Добавить ключ", controller: "kvstorages", action: "new" %>
 </br><%= link_to "Вывести список ключей", controller: "kvstorages", action: "show_all" %>

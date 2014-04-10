@@ -2,26 +2,20 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
 
- #ActiveRecord exceptions
-    rescue_from ActiveRecord::RecordNotFound, :with => :render_404 #400
+  rescue_from ActiveRecord::RecordNotFound, :with => :render_404
 
-    #ActiveResource exceptions  
-    #rescue_from ActiveResource::ResourceNotFound, :with => :render_404 #404
+  rescue_from ActionView::TemplateError, :with => :render_404
 
-    #ActionView exceptions
-    rescue_from ActionView::TemplateError, :with => :render_404 #500
+  rescue_from ActionController::RoutingError, :with => :render_404
 
-    #ActionController exceptions
-    rescue_from ActionController::RoutingError, :with => :render_404 #404   
+  rescue_from ActionController::UnknownController, :with => :render_404
 
-    rescue_from ActionController::UnknownController, :with => :render_404 #404 
+  rescue_from ActionController::MethodNotAllowed, :with => :render_404
 
-    rescue_from ActionController::MethodNotAllowed, :with => :render_404 #405   
-
-    rescue_from ActionController::InvalidAuthenticityToken, :with => :render_404 #405
+  rescue_from ActionController::InvalidAuthenticityToken, :with => :render_404
 
   if Rails.env.production?
-    rescue_from ActionController::UnknownAction, :with => :render_404 #501
+    rescue_from ActionController::UnknownAction, :with => :render_404
   end
 
 

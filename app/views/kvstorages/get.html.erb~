@@ -1,0 +1,11 @@
+<h1>Key: <%= @key.key %></h1>
+
+Key value is: <%= @key.value %>
+
+</br> <%= link_to "Удалить ключ", @key, method: :delete, data: { confirm: "точно удалить?" } %>
+
+<!--
+</br> <%= link_to "Удалить ключ", controller: "kvstorages", action: "destroy", id: @key.id , method: :delete %>
+-->
+
+

@@ -1,0 +1,25 @@
+<h1>Все ключи в порядке убывания числа считываний</h1>
+
+<% if @keys.empty? %>
+  <b>No keys in storage</b>
+<% else %>
+<table border="2">
+  <tr>
+    <th>Key</th>
+    <th>hits</th>
+    <th></th>
+  </tr>
+
+  <% @keys.each do |i| %>
+
+    <tr>
+      <td><%= link_to i.key, controller: "kvstorages", action: "get", id: i %></td>
+      <td><%= i.hits %></td>
+      <td><%= link_to "Удалить", i, method: :delete, data: { confirm: "точно удалить?" } %></td>
+    </tr>
+
+  <% end %>
+
+</table>
+
+<% end %>
